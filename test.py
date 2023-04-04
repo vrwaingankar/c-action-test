@@ -7,7 +7,7 @@ COMPILER_TIMEOUT = 10.0
 RUN_TIMEOUT = 10.0
 
 code_path = os.path.join(TEST_DIR, CODE_FILE)
-code_path2 = os.path.join(TEST_DIR, CODE_FILE)
+code_path2 = os.path.join(TEST_DIR, CODE_FILE2)
 app_path = os.path.join(TEST_DIR, "app")
 app_path2 = os.path.join(TEST_DIR, "app2")
 
@@ -62,7 +62,7 @@ if ret2.returncode != 0:
 	print('Compilation failed.')
 	exit(1)
 
-print("Running...")
+print("Running file 2...")
 try:
 	ret2 = subprocess.run([app_path2],
 		      stdout=subprocess.PIPE,
