@@ -2,15 +2,27 @@ import os, subprocess
 
 TEST_DIR = "."
 CODE_FILE = "main.c"
+CODE_FILE2 = "difference.c"
 COMPILER_TIMEOUT = 10.0
 RUN_TIMEOUT = 10.0
 
 code_path = os.path.join(TEST_DIR, CODE_FILE)
+code_path2 = os.path.join(TEST_DIR, CODE_FILE)
 app_path = os.path.join(TEST_DIR, "app")
 
 print("Building...")
 try:
 	ret = subprocess.run(['gcc', code_path, '-o', app_path],
+							stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+							timeout=COMPILER_TIMEOUT)
+
+except Exception as e:
+	print("ERROR: Compilation failed.", str(e))
+	exit(1)
+
+print("Building second file...")
+try:
+	ret = subprocess.run(['gcc', code_path2, '-o', app_path],
 							stdout=subprocess.PIPE, stderr=subprocess.PIPE,
 							timeout=COMPILER_TIMEOUT)
 
