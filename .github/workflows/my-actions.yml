@@ -12,7 +12,7 @@ jobs:
         - run: echo "Hello, actions"
   
   build-and-test:
-    #needs: [say-hello]
+    needs: [say-hello]
     runs-on: ubuntu-latest
     steps:
       - name: Check out this repo
