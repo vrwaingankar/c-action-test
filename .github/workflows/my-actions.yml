@@ -1,0 +1,12 @@
+# nale of workflow
+name: My test workflow
+
+# define trigger event
+on: [push]
+
+#jobs
+jobs:
+  say-hello:
+      runs-on: ubuntu-latest
+      steps:
+        - run: echo "Hello, actions"
